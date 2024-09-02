@@ -1,0 +1,22 @@
+{
+    "sourceFile": "TreeNode.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1725268136742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1725268141766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+public TreeNode {\n+    int val;\n+    TreeNode left;\n+    TreeNode (int x) {\n+        val = x;\n+    }\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1725268136742,
+            "name": "Commit-0",
+            "content": "public TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode (int x) {\n        val = x;\n    }\n}"
+        }
+    ]
+}
