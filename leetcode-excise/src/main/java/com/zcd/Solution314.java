@@ -22,49 +22,44 @@ public class Solution314 {
         }
 
 
-        LinkedList<TreeNode> queue = new LinkedList();
+         Map<Integer,ArrayList> columnTable = new HashMap<>();
 
-        queue.offer(root);
+        Queue<Pair<TreeNode,Integer>> queue = new ArrayDeque();
 
-        Queue<Integer> posQueue = new LinkedList();
-        posQueue.offer(0);
 
-        HashMap<Integer,List<Integer>> map = new HashMap();
+        int column = 0;
 
-        int minPos = Integer.MAX_VALUE;
-
+        queue.offer(new Pair<>(root,column));
 
         while(!queue.isEmpty()){
 
-            TreeNode node = queue.poll();
-            int pos = posQueue.poll();
-
-            List<Integer> list = map.getOrDefault(pos,new LinkedList());
+            Pair<TreeNode,Integer> p = queue.poll();
 
 
-            list.add(node.val);
-            map.put(pos,list);
+            root = p.getKey();
+            column = p.getValue();
 
-            if(node.left != null){
-                queue.offer(node.left);
-                posQueue.offer(pos -1);
+            if(root != null){
+                if(!columnTable.containsKey(column)){
+                    columnTable.put(column,new ArrayList());
+                }
+
+
+                columnTable.get(column).add(root.val);
+
+                queue.offer(new Pair<>(root.left,column-1));
+                queue.offer(new Pair<>(root.right,column+1));
             }
-
-
-            if(node.right != null){
-                queue.offer(node.right);
-                posQueue.offer(pos+1);
-
-            }
-
-            minPos = Math.min(minPos,pos);
-
         }
 
-        for(int i = minPos ; i < minPos + map.size() ; i++){
-            result.add(map.get(i));
-        }
 
+        List<Integer> sortedKey = new ArrayList<>(columnTable.keySet());
+
+        Collections.sort(sortedKey);
+
+        for(int k:sortedKey){
+            result.add(columnTable.get(k));
+        }
         return result;
     }
 }

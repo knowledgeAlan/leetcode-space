@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="leetcode-excise" target="17" />
+      <module name="leetcode-excise.main" target="17" />
+      <module name="leetcode-excise.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
