@@ -24,6 +24,8 @@ public class Solution246 {
         map.put('8','8');
         map.put('9','6');
 
+        
+
         int length = nums.length();
 
         for (int i = 0 ; i < length;i++){
